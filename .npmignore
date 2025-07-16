@@ -1,0 +1,30 @@
+# Source files (we include src in files array, so this is redundant but explicit)
+# src/
+
+# Test files
+test/
+test-react-app/
+*.test.ts
+*.test.tsx
+
+# Config files
+tsconfig.json
+tsup.config.ts
+.gitignore
+
+# Development files
+.idea/
+node_modules/
+bun.lockb
+
+# Documentation source
+docs/
+TESTING.md
+
+# Git
+.git/
+.gitignore
+
+# Misc
+*.log
+.DS_Store

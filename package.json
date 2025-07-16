@@ -2,6 +2,25 @@
   "name": "@inixiative/conditional-form",
   "version": "0.1.0",
   "description": "Dynamic form generation with conditional logic",
+  "author": "Inixiative",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inixiative/conditional-form.git"
+  },
+  "bugs": {
+    "url": "https://github.com/inixiative/conditional-form/issues"
+  },
+  "homepage": "https://github.com/inixiative/conditional-form#readme",
+  "keywords": [
+    "react",
+    "forms",
+    "conditional",
+    "dynamic",
+    "form-builder",
+    "typescript",
+    "conditional-logic"
+  ],
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
