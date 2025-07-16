@@ -1,0 +1,52 @@
+/* Default CSS variables for shadcn-style components */
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --primary: 222.2 47.4% 11.2%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --ring: 215 20.2% 65.1%;
+  --radius: 0.5rem;
+}
+
+/* Color classes */
+.bg-background { background-color: hsl(var(--background)); }
+.bg-primary { background-color: hsl(var(--primary)); }
+.bg-secondary { background-color: hsl(var(--secondary)); }
+.bg-popover { background-color: hsl(var(--popover)); }
+.bg-accent { background-color: hsl(var(--accent)); }
+
+.text-primary { color: hsl(var(--primary)); }
+.text-primary-foreground { color: hsl(var(--primary-foreground)); }
+.text-muted-foreground { color: hsl(var(--muted-foreground)); }
+.text-accent-foreground { color: hsl(var(--accent-foreground)); }
+.text-popover-foreground { color: hsl(var(--popover-foreground)); }
+.text-destructive { color: hsl(var(--destructive)); }
+
+.border-input { border-color: hsl(var(--input)); }
+.border-primary { border-color: hsl(var(--primary)); }
+
+.ring-ring { --tw-ring-color: hsl(var(--ring)); }
+.ring-offset-background { --tw-ring-offset-color: hsl(var(--background)); }
+
+/* Utility classes */
+.space-y-2 > * + * { margin-top: 0.5rem; }
+.gap-2 { gap: 0.5rem; }
+.rounded-md { border-radius: calc(var(--radius) - 2px); }
+.rounded-sm { border-radius: calc(var(--radius) - 4px); }
+.rounded-full { border-radius: 9999px; }
+.text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+.font-medium { font-weight: 500; }

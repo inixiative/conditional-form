@@ -1,0 +1,24 @@
+model ResourceFormElement {
+  @@map("resourceFormElements")
+  
+  id          String   @id @default(uuid())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Polymorphic association to any resource
+  resourceType String   // e.g., "Inixiative", "Event", "Game", "User"
+  resourceId   String
+  
+  // The key where this element's value will be stored on the resource
+  key          String
+  
+  // Order of this element in the form
+  order        Int
+  
+  // Relations
+  formElement   FormElement @relation(fields: [formElementId], references: [id], onDelete: Cascade)
+  formElementId String
+  
+  @@unique([resourceType, resourceId, order])
+  @@index([formElementId])
+}

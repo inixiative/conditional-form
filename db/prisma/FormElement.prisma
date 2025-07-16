@@ -1,0 +1,93 @@
+model FormElement {
+  @@map("formElements")
+  
+  id          String   @id @default(uuid())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Internal reference name (e.g., "participantCount", "tournamentFormat")
+  name        String
+  
+  // Human-readable label displayed in the form
+  label       String
+  
+  // Internal description for admin reference
+  description String?
+  
+  // Helper text displayed below the field
+  helperText  String?
+  
+  // Tooltip text shown on hover
+  tooltip     String?
+  
+  // The key in the form data object where this value will be stored
+  key         String?
+  
+  // Visualization type for rendering
+  visualization FormElementVisualizationType
+  
+  // Default value (stored as JSON to support different types)
+  // Used for inputs like text, number, slider, etc.
+  defaultValue  Json?
+  
+  // Default selected option (for select, radio, buttonGroup, etc.)
+  defaultOptionId String?
+  defaultOption   FormElementOption? @relation("defaultOption", fields: [defaultOptionId], references: [id])
+  
+  // JSON rules for conditional display
+  // Compatible with existing jsonRules package
+  conditions    Json    @default("true")
+  
+  // Whether this field is disabled
+  disabled      Boolean @default(false)
+  
+  // Whether this field is locked (cannot be edited once set)
+  locked        Boolean @default(false)
+  
+  // Configuration for special visualizations (e.g., slider min/max/step)
+  config        Json?
+  
+  // Relations
+  options           FormElementOption[] @relation("formElementOptions")
+  resourceElements  ResourceFormElement[]
+  
+  @@index([name])
+}
+
+enum FormElementVisualizationType {
+  @@map("formElementVisualizationType")
+  
+  // Hidden fields
+  hidden
+  constant
+  
+  // Text inputs
+  text
+  textarea
+  number
+  email
+  url
+  password
+  
+  // Selection inputs
+  select
+  multiSelect
+  radio
+  checkbox
+  
+  // Button groups
+  buttonGroup
+  multiButtonGroup
+  
+  // Special inputs
+  slider
+  switch
+  datePicker
+  timePicker
+  dateTimePicker
+  colorPicker
+  filePicker
+  
+  // Custom components
+  custom
+}

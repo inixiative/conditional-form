@@ -1,0 +1,43 @@
+model FormElementOption {
+  @@map("formElementOptions")
+  
+  id          String   @id @default(uuid())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Display label
+  label       String
+  
+  // Actual value (stored as JSON for flexibility)
+  value       Json
+  
+  // Internal description for admin reference
+  description String?
+  
+  // Helper text displayed with the option
+  helperText  String?
+  
+  // Tooltip text shown on hover
+  tooltip     String?
+  
+  // Order for display
+  order       Int
+  
+  // Whether this option allows write-in/custom input
+  writeIn     Boolean  @default(false)
+  
+  // Conditions for when this option is available
+  conditions  Json?    @default("true")
+  
+  // Conditions for when this option is disabled (but still visible)
+  disabledConditions Json?
+  
+  // Relations
+  formElement   FormElement @relation("formElementOptions", fields: [formElementId], references: [id], onDelete: Cascade)
+  formElementId String
+  
+  // Reverse relation for default option
+  defaultForElements FormElement[] @relation("defaultOption")
+  
+  @@unique([formElementId, order])
+}
