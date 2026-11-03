@@ -1,28 +1,30 @@
-# conditional-form
+# @inixiative/conditional-form
 
-A dynamic form generation and validation library that creates forms based on data models with conditional logic.
+> **Paused.** Not actively maintained and not recommended for use; it may be revived. One of the [inixiative](https://www.inixiative.com) projects; see [all of them](https://github.com/inixiative).
+
+Generates and validates forms from model configurations, showing or hiding each field with an [`@inixiative/json-rules`](https://github.com/inixiative/json-rules) condition.
 
 ## Features
 
 - **Dynamic Form Generation**: Generate form schemas from model configurations
 - **Conditional Field Rendering**: Show/hide fields based on JSON rules
-- **Smart Validation**: Auto-corrects invalid values and provides detailed error messages
+- **Validation**: removes values a field no longer allows and reports an error for each
 - **Model-Based Structure**: Build forms around selectable models (products, templates, etc.)
-- **TypeScript Support**: Full type safety with generics
+- **TypeScript**: generic types for your models
 
 ## Installation
 
 ```bash
-npm install conditional-form
+npm install @inixiative/conditional-form
 # or
-bun add conditional-form
+bun add @inixiative/conditional-form
 ```
 
 ## Quick Start
 
 ```typescript
-import { generateForm, validateFormSubmission } from 'conditional-form';
-import type { ModelGroup } from 'conditional-form';
+import { generateForm, validateFormSubmission } from '@inixiative/conditional-form';
+import type { ModelGroup } from '@inixiative/conditional-form';
 
 // Define your models
 const games: ModelGroup = {
